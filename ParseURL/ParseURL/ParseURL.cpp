@@ -36,9 +36,8 @@ int GetDefaultPort(Protocol protocol)
 
 bool ParseURL(const string& url, Protocol& protocol, int& port, string& host, string& document)
 {
-    regex url_regex("^([a-zA-Z]+)://([^:/]+)(?::([0-9]+))?(/.*)?$");
+    regex url_regex("^([a-zA-Z]+)://([^:/]+)(?::([0-9]+))?(/.*)?$"); //regex исправить alias
     smatch url_match;
-
     if (regex_match(url, url_match, url_regex)) 
     {
         string protocol_str = url_match[1].str();
@@ -82,8 +81,7 @@ bool ParseURL(const string& url, Protocol& protocol, int& port, string& host, st
 
 void PrintURLInfo(const std::string& url, Protocol protocol, int port, const std::string& host, const std::string& document) 
 {
-    cout << "Исходный URL" << endl;
-    cout << url << endl;
+    cout << "Исходный URL: " << url << endl;
     cout << "HOST: " << host << endl;
     cout << "PORT: " << port << endl;
     cout << "DOC: " << document << endl;
